@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script src="java.js"></script>
+</head>
+<body style="background-color: #FADBD8; "> 
+	<center>
+	<form class="f1">
+		<div style="background-color: #E8DAEF; border-radius: 20px; width: 300px; height: 160px;">
+		<h1>Ingresar</h1>
+		<label>Ingresar nombre:</label>
+		<br>
+		<input type="tex" id="nombre2" placeholder="Ingrese un nombre"style="background-color: #FADBD8; border-radius: 20px; height: 25px;">
+		<br><br>
+		<input type="button" value="Ingresar" onclick="ing();" style="background-color: #D6EAF8; border-radius: 20px; height: 25px;">
+		</div>
+	</form>
+	<form class="f2">
+		<div style="background-color: #D6EAF8; border-radius: 20px; width: 300px; height: 250px;">
+		<h1>Eliminar</h1>
+		<label>Eliminar nombre:</label>
+		<br>
+		<input type="text" id="nombre" placeholder="Ingrese un nombre" style="background-color: #FFCECE ; border-radius: 20px; height: 25px;">
+		<br><br>
+		<input type="button" value="Eliminar" onclick="si();" style="background-color: #BDC3FF; border-radius: 20px; height: 25px;">
+		<br><br>
+		<label>Respuesta:</label>
+		<br>
+		<input type="text" id="re" placeholder="Respuesta" style="background-color: #F1BDFF ; border-radius: 20px; height: 25px;">
+	</div>
+	</form>
+	</center>
+	<script type="text/javascript">
+		var vec=["salome","andres","marina"];
+console.log(vec);
+
+var si=function()
+{
+	var i=0;
+	var nom=document.getElementById("nombre").value;
+	var ul=vec.length-1; 
+	while(i<vec.length)
+	{
+		if(nom==vec[i])
+		{
+			var ult=vec[ul];
+			vec[ul]=vec[i];
+			vec[i]=ult;
+			vec.pop();
+			console.log(vec);
+			i=vec.length;
+			document.getElementById("re").value="Eliminado con éxito";
+			document.getElementById("nom").value="";
+		}
+		else
+		{
+			i=i+1;
+			if (nom!=vec[i])
+			{
+				document.getElementById("re").value=nom+" no está en el vector";
+			}
+		}
+	}
+}
+
+var ing=function()
+{
+	var nombi=document.getElementById("nombre2").value;
+	vec.push(nombi);
+	console.log(vec);
+	document.getElementById("nombre2").value="";
+}
+	</script>
+</body>
+</html>
